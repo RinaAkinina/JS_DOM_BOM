@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Background Changer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f5f8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h2 {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .color {
+            color: #49a6e9;
+        }
+
+        .btn {
+            background-color: transparent;
+            padding: 8px;
+            border: 2px solid #222;
+            border-radius: 5px;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            color: #222;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #222;
+            color: #ffffff;
+            transition: all 0.275s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>
+            Background color:
+            <span class="color">#fff222</span>
+        </h2>
+        <button class="btn">Остановить цвет</button>
+    </div>
+    <script>
+        const button = document.querySelector(".btn");
+        const color = document.querySelector(".color");
+
+        const hex = [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+        ];
+        function generateHex() {
+            let hexColor = "#";
+            for (let i = 0; i < 6; i++) {
+                hexColor += hex[getRandomNumber()];
+            }
+
+            return hexColor;
+        }
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * hex.length);
+        }
+        button.onclick = function () {
+            clearInterval(bingoColors);
+        };
+        let bingoColors;
+        bingoColors = setInterval(function () {
+            let hexColor = generateHex();
+            document.body.style.backgroundColor = hexColor;
+            color.textContent = hexColor;
+        }, 250);
+
+
+    </script>
+</body>
+
+</html>

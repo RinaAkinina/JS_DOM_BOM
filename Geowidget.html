@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Задание 2. Геовиджет
+    </h1>
+    <h2>
+        1. Определите координаты пользователя после загрузки страницы (сделайте запрос за координатами). <br>
+        2. После того, как координаты будут получены, определите ближайший город, используя приложенный архив.
+    </h2>
+    <button id="geo-button">Определить геолокацию</button>
+    <h2 id="geo-location">
+    </h2>
+    <script src="cities.js"></script>
+    <script>
+        const geoButton = document.getElementById('geo-button');
+        const geoLocation = document.getElementById('geo-location');
+        geoButton.onclick = function () {
+            function showCoords(lat, lng) {
+                console.log(lat, lng);
+            }
+            navigator.geolocation.getCurrentPosition(function (data) {
+                const latitude = data.coords.latitude;
+                const longitude = data.coords.longitude;
+                let currentCity;
+                let current = 0;
+                let min = 10000;
+                for (let i = 0; i < window.cities.length; i++) {
+                    current =
+                        Math.abs(latitude - Number(window.cities[i].lat)) +
+                        Math.abs(longitude - Number(window.cities[i].lng));
+                    if (current < min) {
+                        min = current;
+                        currentCity = window.cities[i].name;
+                    }
+                }
+                geoLocation.textContent = currentCity;
+            });
+        }
+
+    </script>
+</body>
+
+</html>

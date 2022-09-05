@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(https://fotovdom.ru/upload/iblock/3cc/3cc2e59e928a856e67bd48b0c44343e6.webp);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-color: rgb(41, 22, 10);
+        }
+
+        .enter-button {
+            margin: 0 auto;
+            display: block;
+            margin-top: 25%;
+            position: center;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 20px;
+            padding: 12px 30px;
+            color: #FFF;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: #000000;
+            cursor: pointer;
+            border: 2px solid #BFE2FF;
+            transition: transform 0.2s ease-out, padding 0.2s ease-out;
+            overflow: hidden;
+        }
+
+        .enter-button:hover,
+        .enter-button:active,
+        .enter-button:focus {
+            color: #FFF;
+            transform: rotate(-2deg);
+            padding: 12px 50px 12px 10px;
+        }
+
+        .enter-button:before {
+            content: "\27A4";
+            position: absolute;
+            right: -30px;
+            color: #ff0000;
+            transition: right 0.5s cubic-bezier(.97, .01, .97, .55);
+        }
+
+        .enter-button:hover:before,
+        .enter-button:active:before,
+        .enter-button:focus:before {
+            right: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d6c7c7;
+            font-size: 40px;
+        }
+
+        .text-warning {
+            margin-top: 45%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-warning">
+        <h1> О нет, тут дракон, бежим!</h1>
+    </div>
+    <script>
+        setTimeout(function () {
+            history.back();
+        }, 5000)
+    </script>
+</body>
+
+</html>

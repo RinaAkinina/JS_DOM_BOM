@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .dogStyle {
+            width: 50%;
+            height: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+        }
+
+        .btnStyle {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 5%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="apply">
+        Задание 4. Face ID
+    </h1>
+    <img id="dogId" class="dogStyle"
+        src="https://i.obozrevatel.com/gallery/2021/11/23/snimok-ekrana-2021-11-23-v-16-47-21.png" alt="dog">
+    <button id="button" class="btnStyle"> Войти</button>
+    <script>
+        const button = document.getElementById('button');
+        const dogId = document.getElementById('dogId');
+        button.onclick = function () {
+            dogId.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

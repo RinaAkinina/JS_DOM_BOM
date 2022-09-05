@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .iAmHere__iKnowWhereYouLive {
+            background-color: darkgreen;
+            height: 50vh;
+            width: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: aliceblue;
+
+            border: 20px solid;
+            border-radius: 4%;
+            border-color: green;
+            margin: auto;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <span>
+            <div>
+                <div class="iAmHere__iKnowWhereYouLive">
+                    <h1 class="iAmHere_text_title"> НАЖМИ НА МЕНЯ</h1>
+                </div>
+            </div>
+        </span>
+    </section>
+
+    <script>
+        const iKnowWhereYouLive = document.querySelector('.iAmHere__iKnowWhereYouLive')
+
+        iKnowWhereYouLive.onclick = function () {
+            let element = iKnowWhereYouLive.parentElement;
+            console.log();
+            let arrName = [];
+            while (element) {
+                arrName.push(element.tagName);
+                element = element.parentElement;
+            }
+            alert(arrName.join(' > '));
+        }
+
+        /*  Второй вариант: :
+        const iKnowWhereYouLive = document.querySelector('.iAmHere__iKnowWhereYouLive');
+
+        const expose = tag => {
+            let sel = `${tag.tagName.toLowerCase()}`
+            return sel;
+        }
+        iKnowWhereYouLive.onclick = e =>
+            alert(e.path.reverse().splice(2).map(expose).join('>'));
+            */
+    </script>
+</body>
+
+</html>

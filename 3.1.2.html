@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        p {
+            color: #ffffff;
+        }
+
+        #redButton {
+            background: red;
+            color: #ffffff;
+            width: 234px;
+            height: 48.6px;
+            border-radius: 30px;
+        }
+
+        #greenButton {
+            background: green;
+            color: #ffffff;
+            width: 234px;
+            height: 48.6px;
+            border-radius: 30px;
+        }
+
+        #blueButton {
+            background: blue;
+            color: #ffffff;
+            width: 234px;
+            height: 48.6px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Задание 2. Покрас бодяс
+    </h1>
+    <p>
+        Сделайте интерфейс из трех кнопок, на черном фоне страницы. Клик по первой кнопке пусть делает фон немного
+        краснее, клик по второй – немного зеленее, клик по третьей – немного синее. Насколько именно синее, краснее и
+        зеленее делать фон – остается на ваше усмотрение, но можете ориентироваться примерно так: если изначально фон
+        черный (#000), то после клика по “красной” кнопке он должен стать (#100) и так далее.
+    </p>
+    <button id="redButton"> Красная кнопка</button>
+    <button id="greenButton"> Зеленая кнопка</button>
+    <button id="blueButton"> Синяя кнопка</button>
+    <script>
+        const redButton = document.getElementById('redButton');
+        const redColor = "#8B0000"
+        redButton.onclick = function () {
+            redButton.textContent = 'Сделала краснее';
+            document.body.style.backgroundColor = redColor;
+        }
+        const greenButton = document.getElementById('greenButton');
+        const greenColor = "#006400"
+        greenButton.onclick = function () {
+            greenButton.textContent = 'Сделала зеленее';
+            document.body.style.backgroundColor = greenColor;
+        }
+        const blueButton = document.getElementById('blueButton');
+        const blueColor = "#191970"
+        blueButton.onclick = function () {
+            blueButton.textContent = 'Сделала синее';
+            document.body.style.backgroundColor = blueColor;
+        }
+    </script>
+</body>
+
+</html>

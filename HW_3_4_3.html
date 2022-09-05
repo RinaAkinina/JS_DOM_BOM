@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form {
+            margin-left: 32px;
+            margin-top: 16px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form">
+
+        <label for="firstname">Имя: </label> <br>
+        <input type="text" name="firstname" /><br>
+        <label for="firstname">Отчество: </label><br>
+        <input type="text" name="lastname" /><br>
+        <label for="patronymic">Фамилия: </label><br>
+        <input type="text" name="patronymic" /><br>
+
+        <label for="conclusion">Результат: </label><br>
+        <input type="text" class="conclusion" name="conclusion" /><br>
+    </form>
+    <script>
+        const conclusion = document.querySelector('.conclusion');
+        const parent = conclusion.parentElement;
+        const inputs = parent.getElementsByTagName('input');
+        conclusion.onclick = function () {
+            let v;
+            let arr = Array.from(inputs, v => v.value);
+            arr.pop();
+            let data = arr.join(' ');
+            conclusion.value = data;
+        }
+
+
+    </script>
+</body>
+
+</html>

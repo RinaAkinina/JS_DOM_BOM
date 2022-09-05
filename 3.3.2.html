@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Background Changer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee383;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="button" data-clicks="0">
+            Количество кликов:
+            <span class="amountClicks">0</span>
+        </button>
+    </div>
+    <script>
+        const button = document.querySelector(".button");
+        const amountClicks = document.querySelector(".amountClicks");
+
+        let lastClicked = 0;
+        function onClickCheck() {
+            const timeNow = (new Date()).getTime();
+
+            if (timeNow > (lastClicked + 1000)) {
+                let clicks = Number(this.dataset.clicks);
+                clicks += 1;
+                this.dataset.clicks = clicks;
+                amountClicks.textContent = clicks;
+            }
+            else {
+                document.querySelector(".button").disabled = true;
+                this.dataset.clicks = 0;
+                amountClicks.textContent = this.dataset.clicks;
+            }
+            lastClicked = timeNow;
+        }
+        button.onclick = onClickCheck;
+    </script>
+</body>
+
+</html>
